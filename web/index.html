@@ -1,0 +1,110 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10283c">
+    <meta name="description" content="Adaptive Maryland EMT field training scenarios.">
+    <title>EMT Field Trainer</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script defer src="{% static 'web-app.js' %}"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="EMT Field Trainer home">
+        <span class="brand-mark" aria-hidden="true">✚</span>
+        <span><strong>EMT FIELD TRAINER</strong><small>Maryland protocol practice</small></span>
+      </a>
+      <span class="training-label">TRAINING USE ONLY</span>
+    </header>
+
+    <main id="app">
+      <section id="home-view">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">FIELD-READY LEARNING</p>
+            <h1>Practice the call.<br><span>Build the instinct.</span></h1>
+            <p class="lede">Work through adaptive patient encounters built around the 2026 Maryland EMS protocols. Your response changes what happens next.</p>
+            <div class="hero-stats">
+              <div><strong id="scenario-count">20</strong><span>Scenarios</span></div>
+              <div><strong>Adaptive</strong><span>Coaching</span></div>
+              <div><strong>Saved</strong><span>Progress</span></div>
+            </div>
+          </div>
+          <aside class="featured-card">
+            <p class="featured-label">FEATURED CALL</p>
+            <span class="pulse-line" aria-hidden="true">⌁⌁⌁</span>
+            <h2>Call 1: Chest Pain</h2>
+            <p>Guide a three-person BLS crew from dispatch through transfer of care and eMEDS documentation.</p>
+            <button class="primary-action" data-start="chest_pain">Begin Call 1 <span>→</span></button>
+          </aside>
+        </div>
+
+        <section class="scenario-section" id="scenarios">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow dark">SCENARIO LIBRARY</p>
+              <h2>Choose your next call</h2>
+            </div>
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <input id="search" type="search" placeholder="Search scenarios or protocols" aria-label="Search scenarios">
+            </label>
+          </div>
+          <div id="scenario-grid" class="scenario-grid" aria-live="polite">
+            <div class="loading-card">Loading scenarios…</div>
+          </div>
+        </section>
+
+        <aside class="safety-note">
+          <strong>Educational training aid</strong>
+          <p id="disclaimer">Follow current Maryland protocols, local policy, medical direction, and your scope of practice during real patient care.</p>
+        </aside>
+        <p class="legal-links"><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
+      </section>
+
+      <section id="trainer-view" class="trainer-view hidden" aria-live="polite">
+        <div class="trainer-shell">
+          <header class="trainer-header">
+            <button id="back-home" class="icon-button" aria-label="Return to scenarios">←</button>
+            <div>
+              <p id="trainer-protocol" class="trainer-protocol">Maryland protocol</p>
+              <h1 id="trainer-title">Scenario</h1>
+            </div>
+            <div class="step-status"><span id="step-label">Step 1 of 1</span><div class="progress"><i id="progress-bar"></i></div></div>
+          </header>
+          <div id="chat" class="chat"></div>
+          <aside id="completion-toast" class="completion-toast hidden" role="status" aria-live="assertive">
+            <button id="dismiss-completion" class="toast-close" type="button" aria-label="Dismiss completion notice">×</button>
+            <p>ENCOUNTER COMPLETE</p>
+            <strong><span id="completion-score">0</span>%</strong>
+            <span id="completion-evaluation">Scenario complete.</span>
+            <div>
+              <button id="completion-retry" type="button">Repeat</button>
+              <button id="completion-home" type="button">All scenarios</button>
+            </div>
+          </aside>
+          <form id="response-form" class="composer">
+            <label for="response-input" class="sr-only">Your response</label>
+            <textarea id="response-input" rows="2" placeholder="Describe what you would do…" required></textarea>
+            <button id="send-response" type="submit">Send response <span>↑</span></button>
+          </form>
+        </div>
+      </section>
+
+      <section id="result-view" class="result-view hidden">
+        <div class="result-card">
+          <p class="eyebrow dark">CALL COMPLETE</p>
+          <h1 id="result-title">Scenario complete</h1>
+          <div class="score-ring"><strong id="result-score">0</strong><span>%</span></div>
+          <p id="result-evaluation"></p>
+          <div class="result-actions">
+            <button id="retry-call" class="primary-action">Repeat scenario</button>
+            <button id="result-home" class="secondary-action">Return to all scenarios</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

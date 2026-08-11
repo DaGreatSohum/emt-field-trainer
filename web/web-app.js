@@ -1,8 +1,11 @@
 const state = { scenarios: [], active: null, attemptId: null, attemptToken: null, step: 1, totalSteps: 1, busy: false };
 const $ = (selector) => document.querySelector(selector);
-const categoryColors = {
-  Cardiac: "#e33e43", Respiratory: "#2b78c5", Trauma: "#e78a2f",
-  Neurologic: "#7057b8", Toxicology: "#269579", Medical: "#3d6c91",
+const categoryClasses = {
+  Cardiac: "category-cardiac", Respiratory: "category-respiratory",
+  Medical: "category-medical", Neurologic: "category-neurologic",
+  Toxicology: "category-toxicology", Trauma: "category-trauma",
+  Pediatrics: "category-pediatrics", Environmental: "category-environmental",
+  Behavioral: "category-behavioral", Obstetrics: "category-obstetrics",
 };
 
 async function api(path, options = {}) {
@@ -27,10 +30,10 @@ function scenarioCard(scenario) {
     ? `<strong class="score-badge">${scenario.score}% score</strong>`
     : "<strong>Start call →</strong>";
   return `
-    <button class="scenario-card" data-start="${scenario.key}" style="--accent:${categoryColors[scenario.category] || "#3d6c91"}">
+    <button class="scenario-card ${categoryClasses[scenario.category] || "category-medical"}" data-start="${scenario.key}">
       <span class="card-category">${scenario.category.toUpperCase()}</span>
       <h3>${escapeHtml(scenario.title)}</h3>
-      <p>${escapeHtml(scenario.protocol)}</p>
+      <p>Independent ${escapeHtml(scenario.category.toLowerCase())} training scenario</p>
       <span class="card-footer"><span>${escapeHtml(scenario.difficulty)}</span>${score}</span>
     </button>`;
 }
@@ -38,7 +41,7 @@ function scenarioCard(scenario) {
 function renderScenarios(filter = "") {
   const term = filter.trim().toLowerCase();
   const filtered = state.scenarios.filter((s) =>
-    `${s.title} ${s.category} ${s.protocol}`.toLowerCase().includes(term)
+    `${s.title} ${s.category} ${s.difficulty}`.toLowerCase().includes(term)
   );
   $("#scenario-grid").innerHTML = filtered.length
     ? filtered.map(scenarioCard).join("")
@@ -49,7 +52,6 @@ async function loadScenarios() {
   try {
     const data = await api("/scenarios/");
     state.scenarios = data.scenarios;
-    $("#scenario-count").textContent = data.scenarios.length;
     $("#disclaimer").textContent = data.disclaimer;
     renderScenarios($("#search").value);
   } catch (error) {
@@ -83,7 +85,7 @@ async function startScenario(key) {
     state.step = data.step;
     state.totalSteps = data.total_steps;
     $("#trainer-title").textContent = scenario.title;
-    $("#trainer-protocol").textContent = scenario.protocol;
+    $("#trainer-protocol").textContent = `${scenario.category} · ${scenario.difficulty}`;
     $("#chat").innerHTML = "";
     $("#completion-toast").classList.add("hidden");
     $("#response-form").classList.remove("composer-disabled");

@@ -53,8 +53,8 @@ SCENARIOS = {
                 "critical": ["BSI/PPE", "airway and oxygen equipment", "AED/monitor"],
                 "advance_always": True,
                 "completion": (
-                    "Thanks for your response. The 2026 Maryland EMS Protocols do not prescribe "
-                    "a call-specific equipment list. A recommended extensive list includes appropriate "
+                    "Thanks for your response. Equipment selections are not graded in this training "
+                    "app. A recommended extensive list includes appropriate "
                     "BSI/PPE, a primary assessment bag with vital-sign equipment, airway and oxygen "
                     "equipment including a BVM, portable suction, an AED/monitor, and authorized BLS "
                     "medications such as aspirin."
@@ -199,7 +199,7 @@ SCENARIOS = {
                     "12-lead/ALS": ["12 lead", "12-lead", "ekg", "ecg", "als", "paramedic"],
                 },
                 "critical": ["OPQRST/SAMPLE", "complete vital signs", "aspirin", "12-lead/ALS"],
-                "first_hint": "Think about the secondary assessment and Maryland's suspected ACS treatment.",
+                "first_hint": "Think about the secondary assessment and care for suspected ACS.",
                 "partial_hint": "You identified {matched}. What other time-sensitive ACS actions are indicated?",
                 "completion": (
                     "Obtain OPQRST/SAMPLE history and complete vital signs. Administer 324 mg or 325 mg "
@@ -564,7 +564,6 @@ def _scenario_summary(key, scenario, latest=None):
         "title": scenario["title"],
         "category": scenario["category"],
         "difficulty": scenario["difficulty"],
-        "protocol": scenario["protocol"],
         "attempted": bool(latest),
         "score": latest.score if latest else None,
         "completed": latest.completed if latest else False,
@@ -780,7 +779,7 @@ def scenario_list(request):
     return JsonResponse(
         {
             "scenarios": scenarios,
-            "disclaimer": "Training aid only. Do not enter real patient information. Follow current Maryland protocols, local policy, medical direction, and your scope of practice during real patient care.",
+            "disclaimer": "EMT Field Trainer is an independent educational application. It is not affiliated with, sponsored by, or endorsed by MIEMSS, the State of Maryland, or any EMS agency. Scenarios are independently authored for training purposes and are informed by publicly available EMS clinical guidance. This app is not intended for real-time patient care or as a substitute for official protocols, medical direction, or formal EMS training.",
         }
     )
 
@@ -1011,5 +1010,5 @@ def _evaluation(score):
     if score >= 70:
         return "Good performance. Review the missed actions before repeating the scenario."
     if score >= 50:
-        return "Developing performance. Revisit the protocol and repeat this scenario."
-    return "Needs focused review. Study the cited protocol section before another attempt."
+        return "Developing performance. Review the applicable assessment and treatment guidance, then repeat this scenario."
+    return "Needs focused review. Study the applicable assessment and treatment guidance before another attempt."

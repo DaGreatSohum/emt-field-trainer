@@ -2,7 +2,7 @@
   "expo": {
     "name": "EMT Field Trainer",
     "slug": "emt-field-trainer",
-    "description": "Maryland EMS protocol field-training simulations for educational use.",
+    "description": "Independent interactive EMT field-training simulations for educational use.",
     "version": "1.0.0",
     "runtimeVersion": { "policy": "appVersion" },
     "orientation": "portrait",

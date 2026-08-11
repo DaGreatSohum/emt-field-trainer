@@ -8,8 +8,8 @@
   in `mobile/eas.json` before building.
 - Host public support, privacy-policy, and terms URLs. The project includes `/privacy/`
   and `/terms/`; add a real support contact and keep all disclosures accurate.
-- Confirm ownership or permission for protocol text, trademarks, branding, images, and
-  other third-party material.
+- Verify that all scenario content is independently written and contains no third-party
+  logos, reproduced protocol text, copyrighted graphics, or third-party training material.
 
 ## App Store Connect metadata
 
@@ -24,8 +24,8 @@
   handling changes.
 - Upload the 1024×1024 App Store icon and required device screenshots. Do not show real
   patient information in screenshots.
-- Review the medical disclaimer, protocol citations, content rights, and the current
-  Maryland/local training requirements with qualified clinical and legal reviewers.
+- As a recommended quality-control step, consider independent clinical review for
+  accuracy and legal review for branding, content-rights, and disclaimer questions.
 
 ## Release configuration
 

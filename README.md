@@ -1,10 +1,10 @@
 # EMT Field Trainer
 
-A React Native/Expo field-training app backed by Django and SQLite. It follows the supplied architecture: students search 20 protocol-grounded scenarios, complete an adaptive chat-style simulation, and receive a saved score and performance review.
+A React Native/Expo field-training app backed by Django and SQLite. Students search 20 independently authored scenarios, complete an adaptive chat-style simulation, and receive a saved score and performance review.
 
 ## Included
 
-- 20 scenarios mapped to the supplied 2026 Maryland EMS protocols
+- 20 independently authored EMT training scenarios with internal clinical source/version tracking
 - Adaptive next prompts based on missed and safety-critical concepts
 - Attempt status, scores, feedback, and transcripts stored in SQLite
 - Searchable mobile scenario dashboard
@@ -95,4 +95,4 @@ as durable production storage.
 
 ## Clinical scope
 
-This is an educational training aid, not a clinical decision-support system. Real patient care must follow current Maryland protocols, local jurisdictional policy, online medical direction, and the clinician's authorized scope of practice.
+EMT Field Trainer is an independent educational application. It is not affiliated with, sponsored by, or endorsed by MIEMSS, the State of Maryland, or any EMS agency. Scenarios are independently authored for training purposes and are informed by publicly available EMS clinical guidance. This app is not intended for real-time patient care or as a substitute for official protocols, medical direction, or formal EMS training.

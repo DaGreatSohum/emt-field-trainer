@@ -49,8 +49,8 @@ public release and after material architecture changes.
 6. Run dependency and security checks before each release, promptly patch supported
    Django/Expo versions, and arrange an independent penetration test before clinical
    training deployment.
-7. Confirm that use of Maryland protocol content, organization names, logos, and other
-   materials is licensed. This repository does not establish those rights.
+7. Verify that all scenario content is independently written and contains no third-party
+   logos, reproduced protocol text, copyrighted graphics, or third-party training material.
 
 ## Security verification
 

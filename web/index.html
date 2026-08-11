@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#10283c">
-    <meta name="description" content="Adaptive Maryland EMT field training scenarios.">
+    <meta name="description" content="Independent adaptive EMT field-training scenarios.">
     <title>EMT Field Trainer</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <script defer src="{% static 'web-app.js' %}"></script>
@@ -14,7 +14,7 @@
     <header class="topbar">
       <a class="brand" href="/" aria-label="EMT Field Trainer home">
         <span class="brand-mark" aria-hidden="true">✚</span>
-        <span><strong>EMT FIELD TRAINER</strong><small>Maryland protocol practice</small></span>
+        <span><strong>EMT FIELD TRAINER</strong><small>Interactive EMT scenario training</small></span>
       </a>
       <span class="training-label">TRAINING USE ONLY</span>
     </header>
@@ -25,11 +25,11 @@
           <div class="hero-copy">
             <p class="eyebrow">FIELD-READY LEARNING</p>
             <h1>Practice the call.<br><span>Build the instinct.</span></h1>
-            <p class="lede">Work through adaptive patient encounters built around the 2026 Maryland EMS protocols. Your response changes what happens next.</p>
+            <p class="lede">Practice adaptive patient encounters designed to reinforce EMT assessment, treatment, communication, and decision-making skills. Your response changes what happens next.</p>
             <div class="hero-stats">
-              <div><strong id="scenario-count">20</strong><span>Scenarios</span></div>
-              <div><strong>Adaptive</strong><span>Coaching</span></div>
-              <div><strong>Saved</strong><span>Progress</span></div>
+              <div><strong>Assess</strong><span>Read the call</span></div>
+              <div><strong>Decide</strong><span>Choose your action</span></div>
+              <div><strong>Debrief</strong><span>Review feedback</span></div>
             </div>
           </div>
           <aside class="featured-card">
@@ -49,7 +49,7 @@
             </div>
             <label class="search-box">
               <span aria-hidden="true">⌕</span>
-              <input id="search" type="search" placeholder="Search scenarios or protocols" aria-label="Search scenarios">
+              <input id="search" type="search" placeholder="Search scenarios or categories" aria-label="Search scenarios">
             </label>
           </div>
           <div id="scenario-grid" class="scenario-grid" aria-live="polite">
@@ -59,9 +59,9 @@
 
         <aside class="safety-note">
           <strong>Educational training aid</strong>
-          <p id="disclaimer">Follow current Maryland protocols, local policy, medical direction, and your scope of practice during real patient care.</p>
+          <p id="disclaimer">EMT Field Trainer is an independent educational application. It is not affiliated with, sponsored by, or endorsed by MIEMSS, the State of Maryland, or any EMS agency. Scenarios are independently authored for training purposes and are informed by publicly available EMS clinical guidance. This app is not intended for real-time patient care or as a substitute for official protocols, medical direction, or formal EMS training.</p>
         </aside>
-        <p class="legal-links"><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
+        <p class="legal-links"><a href="/privacy/">Privacy</a> · <a href="/terms/">About / Disclaimer</a></p>
       </section>
 
       <section id="trainer-view" class="trainer-view hidden" aria-live="polite">
@@ -69,7 +69,7 @@
           <header class="trainer-header">
             <button id="back-home" class="icon-button" aria-label="Return to scenarios">←</button>
             <div>
-              <p id="trainer-protocol" class="trainer-protocol">Maryland protocol</p>
+              <p id="trainer-protocol" class="trainer-protocol">Independent training scenario</p>
               <h1 id="trainer-title">Scenario</h1>
             </div>
             <div class="step-status"><span id="step-label">Step 1 of 1</span><div class="progress"><i id="progress-bar"></i></div></div>

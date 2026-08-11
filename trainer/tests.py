@@ -152,7 +152,7 @@ class TrainerApiTests(TestCase):
             self.assertFalse(first_step["graded"], scenario_key)
             self.assertTrue(first_step["advance_always"], scenario_key)
             self.assertIn(
-                "Although the 2026 Maryland EMS Protocol do not prescribe equipment",
+                "Equipment selections are not graded in this training app",
                 first_step["completion"],
             )
             equipment_responses.add(first_step["completion"])
@@ -826,4 +826,16 @@ class TrainerApiTests(TestCase):
 
     def test_privacy_and_terms_pages_are_public(self):
         self.assertContains(self.client.get("/privacy/"), "Do not enter real patient")
-        self.assertContains(self.client.get("/terms/"), "educational simulation")
+        self.assertContains(
+            self.client.get("/terms/"), "independent educational application"
+        )
+
+    def test_public_branding_is_independent_and_hides_internal_protocol_metadata(self):
+        homepage = self.client.get("/")
+        self.assertContains(homepage, "Interactive EMT scenario training")
+        self.assertNotContains(homepage, "Maryland protocol practice")
+
+        payload = self.client.get("/api/scenarios/").json()
+        self.assertIn("not affiliated with", payload["disclaimer"])
+        self.assertTrue(payload["scenarios"])
+        self.assertNotIn("protocol", payload["scenarios"][0])

@@ -44,7 +44,6 @@ button { cursor: pointer; }
 .hero h1 span { color: #d7e5ee; }
 .lede { max-width: 660px; margin: 23px 0 29px; color: #c7d5df; font-size: 17px; line-height: 1.65; }
 .hero-stats { display: flex; gap: 38px; }
-.hero-stats div { padding-left: 13px; border-left: 3px solid var(--red); }
 .hero-stats strong, .hero-stats span { display: block; }
 .hero-stats strong { font-size: 15px; }
 .hero-stats span { margin-top: 3px; color: #9fb1bf; font-size: 11px; }
@@ -68,6 +67,16 @@ button { cursor: pointer; }
 .scenario-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 5px; background: var(--accent, var(--red)); }
 .scenario-card:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(15,42,61,.1); }
 .card-category { color: var(--accent, var(--red)); font-size: 10px; font-weight: 900; letter-spacing: 1.4px; }
+.category-cardiac { --accent: #e33e43; }
+.category-respiratory { --accent: #2b78c5; }
+.category-medical { --accent: #16815b; }
+.category-neurologic { --accent: #7057b8; }
+.category-toxicology { --accent: #ed8a36; }
+.category-trauma { --accent: #b85c2e; }
+.category-pediatrics { --accent: #d95794; }
+.category-environmental { --accent: #168a83; }
+.category-behavioral { --accent: #7b5cc7; }
+.category-obstetrics { --accent: #c02b7a; }
 .scenario-card h3 { margin: 14px 0 8px; font-size: 19px; }
 .scenario-card p { margin: 0; color: var(--muted); font-size: 12px; }
 .card-footer { position: absolute; bottom: 18px; left: 20px; right: 18px; display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; }

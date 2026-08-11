@@ -25,7 +25,6 @@ type Scenario = {
   title: string;
   category: string;
   difficulty: string;
-  protocol: string;
   attempted: boolean;
   score: number | null;
   completed: boolean;
@@ -95,7 +94,7 @@ export default function App() {
     const term = query.trim().toLowerCase();
     if (!term) return scenarios;
     return scenarios.filter((item) =>
-      `${item.title} ${item.category} ${item.protocol}`.toLowerCase().includes(term),
+      `${item.title} ${item.category} ${item.difficulty}`.toLowerCase().includes(term),
     );
   }, [query, scenarios]);
 
@@ -264,7 +263,7 @@ function HomeScreen({
           <View style={styles.starBadge}><Text style={styles.star}>✚</Text></View>
           <View>
             <Text style={styles.brand}>EMT FIELD TRAINER</Text>
-            <Text style={styles.headerSub}>Maryland protocol practice</Text>
+            <Text style={styles.headerSub}>Interactive EMT scenario training</Text>
           </View>
         </View>
         <Text style={styles.greeting}>Ready for your next call?</Text>
@@ -274,7 +273,7 @@ function HomeScreen({
           <TextInput
             value={query}
             onChangeText={onQuery}
-            placeholder="Search scenarios or protocols"
+            placeholder="Search scenarios or categories"
             placeholderTextColor="#778294"
             style={styles.searchInput}
             autoCapitalize="none"
@@ -310,8 +309,6 @@ function HomeScreen({
               </View>
               <View style={styles.metaRow}>
                 <Text style={styles.meta}>{scenario.difficulty}</Text>
-                <Text style={styles.dot}>•</Text>
-                <Text style={styles.meta}>{scenario.protocol}</Text>
                 <Text style={styles.startText}>{scenario.attempted ? 'Try again  ›' : 'Start  ›'}</Text>
               </View>
             </View>
@@ -353,7 +350,7 @@ function SessionScreen({
         <Pressable style={styles.backButton} onPress={onBack}><Text style={styles.backText}>‹</Text></Pressable>
         <View style={styles.sessionHeadText}>
           <Text style={styles.sessionTitle}>{session.scenario.title}</Text>
-          <Text style={styles.sessionMeta}>{session.scenario.protocol} · Step {session.step} of {session.totalSteps}</Text>
+          <Text style={styles.sessionMeta}>{session.scenario.category} · {session.scenario.difficulty} · Step {session.step} of {session.totalSteps}</Text>
         </View>
         <View style={styles.livePill}><View style={styles.liveDot} /><Text style={styles.liveText}>LIVE</Text></View>
       </View>
@@ -439,7 +436,7 @@ function ResultScreen({
       </View>
       <Pressable style={styles.primaryButton} onPress={onRetry}><Text style={styles.primaryButtonText}>Repeat scenario</Text></Pressable>
       <Pressable style={styles.secondaryButton} onPress={onHome}><Text style={styles.secondaryButtonText}>Back to scenarios</Text></Pressable>
-      <Text style={styles.protocolNote}>Reference: {scenario.protocol} · Training use only</Text>
+      <Text style={styles.protocolNote}>Independent educational scenario · Training use only</Text>
     </ScrollView>
   );
 }

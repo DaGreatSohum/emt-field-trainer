@@ -2,8 +2,8 @@ from copy import deepcopy
 
 
 EQUIPMENT_RESPONSE_INTRO = (
-    "Thanks for your response. Although the 2026 Maryland EMS Protocol do not "
-    "prescribe equipment for calls, a recommended extensive equipment list is below:"
+    "Thanks for your response. Equipment selections are not graded in this training "
+    "app. A recommended extensive equipment list is below:"
 )
 
 EQUIPMENT_STEP = {
@@ -186,7 +186,7 @@ SCENE_SIZEUP_STEP = {
         }
     ],
     "completion": (
-        "Under Maryland GPC 2.1, Scene Arrival and Size-Up includes considering BSI, "
+        "Scene Arrival and Size-Up includes considering BSI, "
         "selecting appropriate PPE, evaluating scene safety, determining the number of "
         "patients, and considering the need for additional resources.\n\nDetermining "
         "NOI versus MOI is the next Patient Approach step, immediately after scene "
@@ -225,7 +225,7 @@ ORIENTATION_STEP = {
     "completion": (
         "Assess orientation to person, place, time, and situation/event (often documented "
         "as A&O x4). Record the patient's actual answers rather than only the shorthand. "
-        "Maryland GPC uses AVPU for the initial mental-status check; this more detailed "
+        "AVPU establishes the initial level of responsiveness; this more detailed "
         "orientation assessment supports the focused neurologic examination. It is also "
         "explicitly required when evaluating decision-making capability for a refusal."
     ),
@@ -443,7 +443,7 @@ CLINICAL_COMPLETIONS = {
         (
             "Persistent hypotension and wheezing require continued ABC support, shock care, "
             "prompt transport, frequent reassessment, and ALS care. Repeat epinephrine and "
-            "additional medications only as authorized by the current Maryland protocol, "
+            "additional medications only as authorized by current applicable protocols, "
             "local optional program, clinician level, and medical direction."
         ),
     ],

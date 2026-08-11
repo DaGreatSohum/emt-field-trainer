@@ -24,8 +24,8 @@ CHEST_PAIN_SCENARIO = {
             "critical": ["primary bag", "oxygen and airway equipment"],
             "advance_always": True,
             "completion": (
-                "Thanks for your response. Although the 2026 Maryland EMS Protocols do "
-                "not prescribe equipment for calls, a recommended extensive equipment "
+                "Thanks for your response. Equipment selections are not graded in this "
+                "training app. A recommended extensive equipment "
                 "list includes:\n• Primary bag (jump bag/green bag)\n• Oxygen and airway "
                 "equipment\n• Cot\n• Stair chair"
             ),
@@ -74,8 +74,8 @@ CHEST_PAIN_SCENARIO = {
             "completion": (
                 "The complete scene size-up includes BSI/PPE, scene safety, number of "
                 "patients, and consideration of additional resources.\n\nThe scene is safe, "
-                "you have one patient, and gloves are appropriate.\n\nUnder Maryland GPC "
-                "2.1, determining NOI versus MOI is the next step under Patient Approach, "
+                "you have one patient, and gloves are appropriate.\n\nDetermining NOI "
+                "versus MOI is the next step under Patient Approach, "
                 "immediately after Scene Arrival and Size-Up. Cervical-spine stabilization "
                 "is considered later during the Airway portion of the initial assessment "
                 "when appropriate. Nothing in this atraumatic chest-pain presentation "
@@ -299,7 +299,7 @@ CHEST_PAIN_SCENARIO = {
             },
             "critical": ["aspirin", "324/325 mg chewed PO", "no aspirin hypersensitivity", "not already fully dosed"],
             "first_hint": (
-                "Use the Maryland Chest Pain/ACS protocol. Which medication and other BLS "
+                "For suspected ACS, which medication and other BLS "
                 "interventions should you consider?"
             ),
             "second_hint": "Aspirin is appropriate, but what must you verify before administering it?",
@@ -356,7 +356,7 @@ CHEST_PAIN_SCENARIO = {
             "critical": ["prescribed nitroglycerin", "0.4 mg sublingual", "SBP above 90", "pulse 60-150", "no PAH/PDE medication in 48 hours"],
             "first_hint": (
                 "Chest pain continues after aspirin. What other BLS medication may be "
-                "appropriate under the Maryland Chest Pain/ACS protocol?"
+                "appropriate for this patient?"
             ),
             "second_hint": "Assisting with nitroglycerin may be appropriate. What must you verify first?",
             "partial_hint": "You identified {matched}. What other nitroglycerin safety requirement remains?",

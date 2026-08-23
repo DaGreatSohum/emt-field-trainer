@@ -57,9 +57,15 @@ async function api<T>(path: string, options?: RequestInit): Promise<T> {
     ...options,
     headers: { 'Content-Type': 'application/json', ...(options?.headers || {}) },
   });
-  const body = await response.json();
-  if (!response.ok) throw new Error(body.error || 'Request failed.');
-  return body;
+  const text = await response.text();
+  let body: { error?: string } = {};
+  try {
+    body = text ? JSON.parse(text) : {};
+  } catch {
+    body = {};
+  }
+  if (!response.ok) throw new Error(body.error || `Request failed with status ${response.status}.`);
+  return body as T;
 }
 
 export default function App() {

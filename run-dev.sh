@@ -22,7 +22,8 @@ if ! command -v npm >/dev/null 2>&1; then
 fi
 
 LAN_IP="$(ipconfig getifaddr en0 2>/dev/null || ipconfig getifaddr en1 2>/dev/null || true)"
-LAN_IP="${LAN_IP:-127.0.0.1}"
+LAN_IP="${LAN_IP:-127.0.0.1}" 
+export DJANGO_ALLOWED_HOSTS="${DJANGO_ALLOWED_HOSTS:-localhost,127.0.0.1,0.0.0.0,$LAN_IP}"
 
 "$VENV_PYTHON" "$PROJECT_DIR/manage.py" migrate
 "$VENV_PYTHON" "$PROJECT_DIR/manage.py" runserver 0.0.0.0:8000 &
